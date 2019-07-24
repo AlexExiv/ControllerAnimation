@@ -17,7 +17,7 @@ internal class AAPercentModalInteractiveTransition: UIPercentDrivenInteractiveTr
     private var anchorProgress = CGFloat( 0 );
     
     private(set) var isInProgress = false;
-    var isCanInteraction = false;
+    var isCanInteraction = true;
     
     init( presented: UIViewController )
     {

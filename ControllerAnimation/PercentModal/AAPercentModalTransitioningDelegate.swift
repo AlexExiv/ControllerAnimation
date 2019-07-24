@@ -94,7 +94,7 @@ extension UIViewController
         }
     }
     
-    var canDismissInteract: Bool
+    public var canDismissInteract: Bool
     {
         set
         {
@@ -106,7 +106,7 @@ extension UIViewController
         }
     }
     
-    var dismissInteractionInProgress: Bool
+    public var dismissInteractionInProgress: Bool
     {
         get
         {
@@ -114,7 +114,7 @@ extension UIViewController
         }
     }
     
-    func ProcessInteract( scrollView rScrollView: UIScrollView )
+    public func ProcessInteract( scrollView rScrollView: UIScrollView )
     {
 //        print( "contentInset - \(rScrollView.adjustedContentInset)" )
         var fInsetTop: CGFloat = 0.0;
@@ -151,7 +151,7 @@ extension UIViewController
 
 extension UITableViewController
 {
-    func ProcessInteract()
+    public func ProcessInteract()
     {
         ProcessInteract( scrollView: tableView );
     }
