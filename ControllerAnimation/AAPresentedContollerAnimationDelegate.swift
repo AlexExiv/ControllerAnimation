@@ -9,13 +9,13 @@
 import UIKit
 
 
-protocol AAPresentedContollerAnimationDelegate
+public protocol AAPresentedContollerAnimationDelegate
 {
     func AnimationDidBegin( animation: AAControllerAnimation );
     func AnimationDidEnd( animation: AAControllerAnimation, completed: Bool );
 }
 
-extension AAPresentedContollerAnimationDelegate
+public extension AAPresentedContollerAnimationDelegate
 {
     func AnimationDidBegin( animation: AAControllerAnimation )
     {
