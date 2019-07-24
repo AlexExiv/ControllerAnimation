@@ -8,12 +8,12 @@
 
 import UIKit
 
-enum AAPercentModalDirection
+public enum AAPercentModalDirection
 {
     case left, right, bottom, top;
 }
 
-protocol AAPercentModalProtocol
+public protocol AAPercentModalProtocol
 {
     var modalStride: CGFloat { get };
     var modalStridePercent: CGFloat { get };
@@ -22,7 +22,7 @@ protocol AAPercentModalProtocol
     var modalDuration: TimeInterval { get };
 }
 
-extension AAPercentModalProtocol
+public extension AAPercentModalProtocol
 {
     var modalStride: CGFloat
     {
