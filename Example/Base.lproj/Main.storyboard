@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1SK-fj-OjJ">
+                                <rect key="frame" x="137" y="424" width="140" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="HNP-xi-WS9"/>
+                                    <constraint firstAttribute="height" constant="48" id="xRj-TC-d59"/>
+                                </constraints>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="yyH-Qk-pZ9" kind="presentation" identifier="ModalController_PercentAnim" id="QPk-8r-Agx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.15686274510000001" green="0.68235294120000001" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="1SK-fj-OjJ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Ek8-2R-ccE"/>
+                            <constraint firstItem="1SK-fj-OjJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vWl-jl-KSh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="81" y="138"/>
+        </scene>
+        <!--Modal Controller-->
+        <scene sceneID="oI6-5K-qAf">
+            <objects>
+                <viewController storyboardIdentifier="ModalController" id="yyH-Qk-pZ9" customClass="ModalController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Yms-rG-hRq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="TiB-U4-mak">
+                                <rect key="frame" x="0.0" y="568" width="414" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="585734897.87186897">
+                                    <!--2019-07-25 08:08:17 +0000-->
+                                </date>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQg-62-D7Q">
+                                <rect key="frame" x="15" y="799" width="384" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="1CO-60-Y6w"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="Close:" destination="yyH-Qk-pZ9" eventType="touchUpInside" id="22b-Kx-SoA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="TiB-U4-mak" firstAttribute="trailing" secondItem="BiG-UL-Zda" secondAttribute="trailing" id="Atc-X6-axl"/>
+                            <constraint firstItem="TiB-U4-mak" firstAttribute="leading" secondItem="BiG-UL-Zda" secondAttribute="leading" id="dvk-dz-lSy"/>
+                            <constraint firstItem="BiG-UL-Zda" firstAttribute="trailing" secondItem="lQg-62-D7Q" secondAttribute="trailing" constant="15" id="e3Q-gH-GlS"/>
+                            <constraint firstItem="BiG-UL-Zda" firstAttribute="bottom" secondItem="lQg-62-D7Q" secondAttribute="bottom" constant="15" id="gSr-y3-xhO"/>
+                            <constraint firstItem="lQg-62-D7Q" firstAttribute="leading" secondItem="BiG-UL-Zda" secondAttribute="leading" constant="15" id="iZu-gG-SQi"/>
+                            <constraint firstItem="lQg-62-D7Q" firstAttribute="top" secondItem="TiB-U4-mak" secondAttribute="bottom" constant="15" id="rug-rm-11X"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="BiG-UL-Zda"/>
+                    </view>
+                    <connections>
+                        <outlet property="datePickerView" destination="TiB-U4-mak" id="r7R-iF-4aI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QoO-v7-gVE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="980" y="138"/>
+        </scene>
+    </scenes>
+</document>
