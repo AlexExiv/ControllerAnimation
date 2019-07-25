@@ -16,6 +16,7 @@ protocol AAPercentModalStride
     var stridePercent: CGFloat { get };
     var totalStride: CGFloat { get };
     var fullSize: CGFloat { get };
+    var skipViews: [UIView]? { get }
     
     var direction: AAPercentModalDirection { get };
     
@@ -62,6 +63,11 @@ extension AAPercentModalStride
         case .bottom, .top:
             return stride == 0 ? fullSize*stridePercent : stride;
         }
+    }
+    
+    var skipViews: [UIView]?
+    {
+        return (presented as? AAPercentModalProtocol)?.skipViews
     }
     
     var animationDuration: TimeInterval

@@ -20,6 +20,7 @@ public protocol AAPercentModalProtocol
     var modalDirection: AAPercentModalDirection { get };
     var modalCornersRadius: CGFloat { get };
     var modalDuration: TimeInterval { get };
+    var skipViews: [UIView]? { get }
 }
 
 public extension AAPercentModalProtocol
@@ -47,5 +48,10 @@ public extension AAPercentModalProtocol
     var modalDuration: TimeInterval
     {
         return 0.35;
+    }
+    
+    var skipViews: [UIView]?
+    {
+        return nil
     }
 }

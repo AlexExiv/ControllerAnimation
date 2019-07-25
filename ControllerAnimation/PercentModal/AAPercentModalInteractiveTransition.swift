@@ -19,6 +19,8 @@ internal class AAPercentModalInteractiveTransition: UIPercentDrivenInteractiveTr
     private(set) var isInProgress = false;
     var isCanInteraction = true;
     
+    private var _skipViews: [UIView]? = nil
+    
     init( presented: UIViewController )
     {
         self.presented = presented;
@@ -59,8 +61,22 @@ internal class AAPercentModalInteractiveTransition: UIPercentDrivenInteractiveTr
         }
         progress = CGFloat( fminf( fmaxf( Float( progress ), 0.0 ), 1.0 ) )
         
+        var isInsideSkip = false
+        if _skipViews == nil
+        {
+            _skipViews = skipViews
+        }
+        
+        if let skipViews = skipViews
+        {
+            isInsideSkip = skipViews.reduce( false, {
+                let p = rPan.location( in: $1 )
+                return $0 || $1.point( inside: p, with: nil )
+            })
+        }
+        
         //print( "Progress - \(progress), Translation - \(rTranslation)" );
-        if rPan.state == .changed && !isCanInteraction
+        if (rPan.state == .changed && !isCanInteraction) || isInsideSkip
         {
             return;
         }
