@@ -48,16 +48,16 @@ internal class AAPercentModalInteractiveTransition: UIPercentDrivenInteractiveTr
         switch direction
         {
         case .left:
-            progress = -rTranslation.x/fullSize;
+            progress = -rTranslation.x/totalStride;
             
         case .right:
-            progress = rTranslation.x/fullSize;
+            progress = rTranslation.x/totalStride;
             
         case .top:
-            progress = -rTranslation.y/fullSize;
+            progress = -rTranslation.y/totalStride;
             
         case .bottom:
-            progress = rTranslation.y/fullSize;
+            progress = rTranslation.y/totalStride;
         }
         progress = CGFloat( fminf( fmaxf( Float( progress ), 0.0 ), 1.0 ) )
         
