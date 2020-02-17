@@ -11,19 +11,19 @@ import UIKit
 
 public class AAControllerAnimation: NSObject, UIViewControllerAnimatedTransitioning
 {
-    enum State
+    public enum State
     {
         case present, dismiss;
     }
     
     private let delegateId: String;
-    let presentState: AAControllerAnimation.State;
-    let duration: TimeInterval;
+    public let presentState: AAControllerAnimation.State;
+    public let duration: TimeInterval;
     
-    private(set) var containerView: UIView! = nil;
+    public private(set) var containerView: UIView! = nil;
     
-    private(set) var presenting: UIViewController! = nil;
-    private(set) var presented: UIViewController! = nil;
+    public private(set) var presenting: UIViewController! = nil;
+    public private(set) var presented: UIViewController! = nil;
     private var presentedDelegate: AAPresentedContollerAnimationDelegate? = nil;
     
     private var subviews = [UIView]();

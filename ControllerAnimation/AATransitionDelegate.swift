@@ -31,9 +31,9 @@ class AATransitionDelegate: NSObject, UIViewControllerTransitioningDelegate
         }
     }
     
-    let id = UUID().uuidString;
-    let presented: UIViewController!;
-    let presenting: UIViewController!;
+    public let id = UUID().uuidString;
+    public let presented: UIViewController!;
+    public let presenting: UIViewController!;
     
     init( presented: UIViewController, presenting: UIViewController )
     {

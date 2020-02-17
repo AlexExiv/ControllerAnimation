@@ -8,12 +8,10 @@
 
 import UIKit
 
-
-protocol AAFromFrameProtocol
+public protocol AAFromFrameProtocol
 {
     var fromFrame: CGRect { get };
 }
-
 
 class AAFromFrameContollerAnimation: AAControllerAnimation
 {
