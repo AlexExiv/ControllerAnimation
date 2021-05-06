@@ -40,6 +40,8 @@ class AAFromFrameContollerAnimation: AAControllerAnimation
         
         animated.alpha = state == .present ? 0.5 : 1.0
         animated.frame = fromFrame
+        animated.setNeedsLayout()
+        animated.layoutIfNeeded()
 
         UIView.animate( withDuration: duration, animations:
         {

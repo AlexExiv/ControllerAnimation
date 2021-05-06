@@ -26,6 +26,7 @@ public class AAFromFramePresentationDelegate: AATransitionDelegate
         
         super.init( presented: presented, presenting: presenting )
         presented.modalPresentationStyle = .custom
+        presented.view.clipsToBounds = true
         
         presentAnimation = AAFromFrameContollerAnimation( presented: presented, presenting: presenting, delegateId: id, state: .present, duration: duration, fromFrame: fromFrame )
         dismissAnimation = AAFromFrameContollerAnimation( presented: presented, presenting: presenting, delegateId: id, state: .dismiss, duration: duration, fromFrame: fromFrame )
