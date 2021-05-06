@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import ControllerAnimation
 
 class ViewController: UIViewController
 {
-
+    @IBOutlet weak var fromView: UIView!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -21,6 +23,18 @@ class ViewController: UIViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         PrepareAnimation( segue: segue )
+        
+        if let id = segue.identifier
+        {
+            switch id
+            {
+            case "FromFrameController":
+                AAFromFramePresentationDelegate( presented: segue.destination, presenting: self, fromFrame: fromView.convert( fromView.bounds, to: nil ), duration: 0.4 )
+                
+            default:
+                break
+            }
+        }
     }
 }
 

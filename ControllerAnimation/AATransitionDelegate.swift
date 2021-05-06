@@ -9,7 +9,7 @@
 import UIKit
 
 
-class AATransitionDelegate: NSObject, UIViewControllerTransitioningDelegate
+open class AATransitionDelegate: NSObject, UIViewControllerTransitioningDelegate
 {
     static internal var COLLECTION = [AATransitionDelegate]();
     
@@ -46,5 +46,10 @@ class AATransitionDelegate: NSObject, UIViewControllerTransitioningDelegate
         //presented.modalPresentationStyle = .custom;
         
         AATransitionDelegate.Push( self );
+    }
+    
+    deinit
+    {
+        print( "REMOVE TRANSITION DELEGATE" )
     }
 }

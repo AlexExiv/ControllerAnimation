@@ -27,10 +27,6 @@ public extension UIViewController
             {
                 _ = AAOpacityPresentationDelegate( presented: segue.destination, presenting: self );
             }
-            else if id.contains( "_FromFrameAnim" )
-            {
-                _ = AAFromFramePresentationDelegate( presented: segue.destination, presenting: self );
-            }
         }
     }
 }

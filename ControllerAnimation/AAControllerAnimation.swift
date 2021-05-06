@@ -9,7 +9,7 @@
 import UIKit
 
 
-public class AAControllerAnimation: NSObject, UIViewControllerAnimatedTransitioning
+open class AAControllerAnimation: NSObject, UIViewControllerAnimatedTransitioning
 {
     public enum State
     {
@@ -56,18 +56,18 @@ public class AAControllerAnimation: NSObject, UIViewControllerAnimatedTransition
     }
     
     //MARK: - UIViewControllerAnimatedTransitioning
-    public func transitionDuration( using transitionContext: UIViewControllerContextTransitioning? ) -> TimeInterval
+    open func transitionDuration( using transitionContext: UIViewControllerContextTransitioning? ) -> TimeInterval
     {
         return duration;
     }
     
-    public func animateTransition( using transitionContext: UIViewControllerContextTransitioning )
+    open func animateTransition( using transitionContext: UIViewControllerContextTransitioning )
     {
         containerView = transitionContext.containerView;
         presentedDelegate?.AnimationDidBegin( animation: self );
     }
     
-    public func animationEnded( _ transitionCompleted: Bool )
+    open func animationEnded( _ transitionCompleted: Bool )
     {
         presentedDelegate?.AnimationDidEnd( animation: self, completed: transitionCompleted );
         if( (transitionCompleted && (presentState == .dismiss)) || (!transitionCompleted && (presentState == .present)) )

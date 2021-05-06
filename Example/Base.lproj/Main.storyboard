@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,13 +17,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1SK-fj-OjJ">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TCi-0b-1O2">
+                                <rect key="frame" x="0.0" y="44" width="414" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="rxf-Pq-bZq"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hrH-qg-fEP">
+                                <rect key="frame" x="137" y="488" width="140" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="9Ke-My-OZT"/>
+                                    <constraint firstAttribute="height" constant="48" id="tES-4E-ckb"/>
+                                </constraints>
+                                <state key="normal" title="From Frame">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="QgH-78-Grd" kind="presentation" identifier="FromFrameController" id="uEm-7C-cob"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1SK-fj-OjJ">
                                 <rect key="frame" x="137" y="424" width="140" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="HNP-xi-WS9"/>
                                     <constraint firstAttribute="height" constant="48" id="xRj-TC-d59"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Percent Modal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -32,13 +51,21 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.15686274510000001" green="0.68235294120000001" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="hrH-qg-fEP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5DO-Sc-Vv8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TCi-0b-1O2" secondAttribute="trailing" id="BqY-py-d4g"/>
                             <constraint firstItem="1SK-fj-OjJ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Ek8-2R-ccE"/>
+                            <constraint firstItem="TCi-0b-1O2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Eug-Vv-Ygb"/>
+                            <constraint firstItem="hrH-qg-fEP" firstAttribute="top" secondItem="1SK-fj-OjJ" secondAttribute="bottom" constant="16" id="SR6-E7-Yje"/>
                             <constraint firstItem="1SK-fj-OjJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vWl-jl-KSh"/>
+                            <constraint firstItem="TCi-0b-1O2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="vYE-qT-fQ5"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="fromView" destination="TCi-0b-1O2" id="Wj9-V6-XGx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -49,17 +76,14 @@
             <objects>
                 <viewController storyboardIdentifier="ModalController" id="yyH-Qk-pZ9" customClass="ModalController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yms-rG-hRq">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="TiB-U4-mak">
-                                <rect key="frame" x="0.0" y="568" width="414" height="216"/>
-                                <date key="date" timeIntervalSinceReferenceDate="585734897.87186897">
-                                    <!--2019-07-25 08:08:17 +0000-->
-                                </date>
+                                <rect key="frame" x="0.0" y="514" width="414" height="216"/>
                             </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQg-62-D7Q">
-                                <rect key="frame" x="15" y="799" width="384" height="48"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQg-62-D7Q">
+                                <rect key="frame" x="15" y="745" width="384" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="1CO-60-Y6w"/>
                                 </constraints>
@@ -69,6 +93,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="BiG-UL-Zda"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="TiB-U4-mak" firstAttribute="trailing" secondItem="BiG-UL-Zda" secondAttribute="trailing" id="Atc-X6-axl"/>
@@ -78,7 +103,6 @@
                             <constraint firstItem="lQg-62-D7Q" firstAttribute="leading" secondItem="BiG-UL-Zda" secondAttribute="leading" constant="15" id="iZu-gG-SQi"/>
                             <constraint firstItem="lQg-62-D7Q" firstAttribute="top" secondItem="TiB-U4-mak" secondAttribute="bottom" constant="15" id="rug-rm-11X"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="BiG-UL-Zda"/>
                     </view>
                     <connections>
                         <outlet property="datePickerView" destination="TiB-U4-mak" id="r7R-iF-4aI"/>
@@ -88,5 +112,42 @@
             </objects>
             <point key="canvasLocation" x="980" y="138"/>
         </scene>
+        <!--From Frame Controller-->
+        <scene sceneID="Vco-Sd-jXY">
+            <objects>
+                <viewController storyboardIdentifier="FromFrameController" id="QgH-78-Grd" customClass="FromFrameController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0YF-eC-VQG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9fb-5R-SW8">
+                                <rect key="frame" x="157" y="398.5" width="100" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="6tL-oO-DuG"/>
+                                    <constraint firstAttribute="width" constant="100" id="VS6-Q8-N55"/>
+                                </constraints>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="Close:" destination="QgH-78-Grd" eventType="touchUpInside" id="Ooi-Ez-yR5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Byw-su-JEg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9fb-5R-SW8" firstAttribute="centerX" secondItem="0YF-eC-VQG" secondAttribute="centerX" id="8j7-xA-yfN"/>
+                            <constraint firstItem="9fb-5R-SW8" firstAttribute="centerY" secondItem="0YF-eC-VQG" secondAttribute="centerY" id="bwB-iB-kUl"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MjN-jO-7Ge" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="980" y="834"/>
+        </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

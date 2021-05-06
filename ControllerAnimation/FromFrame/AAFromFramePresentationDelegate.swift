@@ -8,16 +8,48 @@
 
 import UIKit
 
-
-class AAFromFramePresentationDelegate: AATransitionDelegate
+public class AAFromFramePresentationDelegate: AATransitionDelegate
 {
-    func animationController( forDismissed dismissed: UIViewController ) -> UIViewControllerAnimatedTransitioning?
+    private var presentAnimation: AAFromFrameContollerAnimation! = nil
+    private var dismissAnimation: AAFromFrameContollerAnimation! = nil
+    private var dismissInteraction: AAFromFrameInteractiveTransition! = nil
+    private var presentCntrl: AAFromFramePresentationController! = nil
+    
+    let fromFrame: CGRect
+    let duration: TimeInterval
+    
+    @discardableResult
+    public init( presented: UIViewController, presenting: UIViewController, fromFrame: CGRect, duration: TimeInterval )
     {
-        return AAFromFrameContollerAnimation( presented: presented, presenting: presenting, delegateId: id, state: .dismiss, duration: 0.4 );
+        self.fromFrame = fromFrame
+        self.duration = duration
+        
+        super.init( presented: presented, presenting: presenting )
+        presented.modalPresentationStyle = .custom
+        
+        presentAnimation = AAFromFrameContollerAnimation( presented: presented, presenting: presenting, delegateId: id, state: .present, duration: duration, fromFrame: fromFrame )
+        dismissAnimation = AAFromFrameContollerAnimation( presented: presented, presenting: presenting, delegateId: id, state: .dismiss, duration: duration, fromFrame: fromFrame )
+        presentCntrl = AAFromFramePresentationController( dimmingView: AAShadeDimming(), presentedViewController: presented, presenting: presenting )
+        dismissInteraction = AAFromFrameInteractiveTransition( presented: presented, frame: fromFrame )
     }
     
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning?
+    func animationController( forDismissed dismissed: UIViewController ) -> UIViewControllerAnimatedTransitioning?
     {
-        return AAFromFrameContollerAnimation( presented: self.presented, presenting: self.presenting, delegateId: id, state: .present, duration: 0.4 );
+        dismissAnimation
+    }
+    
+    func animationController( forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning?
+    {
+        presentAnimation
+    }
+    
+    func presentationController( forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController ) -> UIPresentationController?
+    {
+        presentCntrl
+    }
+    
+    func interactionControllerForDismissal( using animator: UIViewControllerAnimatedTransitioning ) -> UIViewControllerInteractiveTransitioning?
+    {
+        dismissInteraction.isInProgress ? dismissInteraction : nil
     }
 }

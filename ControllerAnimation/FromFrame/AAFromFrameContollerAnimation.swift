@@ -8,47 +8,55 @@
 
 import UIKit
 
-public protocol AAFromFrameProtocol
-{
-    var fromFrame: CGRect { get };
-}
-
 class AAFromFrameContollerAnimation: AAControllerAnimation
 {
+    let fromFrame: CGRect
+    
+    init( presented: UIViewController, presenting: UIViewController, delegateId: String, state: AAControllerAnimation.State, duration: TimeInterval, fromFrame: CGRect )
+    {
+        self.fromFrame = fromFrame
+        super.init( presented: presented, presenting: presenting, delegateId: delegateId, state: state, duration: duration )
+    }
+
     override func animateTransition( using transitionContext: UIViewControllerContextTransitioning )
     {
-        super.animateTransition( using: transitionContext );
+        super.animateTransition( using: transitionContext )
         
-        guard let from = transitionContext.view( forKey: .from ), let to = transitionContext.view( forKey: .to ) else { return; };
+        let state = presentState
+        let fromFrame = state == .present ? self.fromFrame : presented.view.frame
+        let toFrame = state == .present ? presented.view.frame : self.fromFrame
         
-        let up = presentState == .present ? to : from;
-        let down = presentState == .present ? from : to;
+        let animated: UIView
+        if state == .present
+        {
+            animated = transitionContext.view( forKey: .to )!
+        }
+        else
+        {
+            animated = transitionContext.view( forKey: .from )!
+        }
         
-        transitionContext.containerView.addSubview( down );
-        transitionContext.containerView.addSubview( up );
+        transitionContext.containerView.addSubview( animated )
         
-        let state = presentState;
-        let fromFrame = state == .present ? (presenting as! AAFromFrameProtocol).fromFrame : presented.view.frame;
-        let toFrame = state == .present ? presented.view.frame : (presenting as! AAFromFrameProtocol).fromFrame;
-        
-        presented.view.alpha = state == .present ? 0.5 : 1.0;
-        presented.view.frame = fromFrame;
-        
-        weak var _self = self;
+        animated.alpha = state == .present ? 0.5 : 1.0
+        animated.frame = fromFrame
+
         UIView.animate( withDuration: duration, animations:
         {
-            _self?.presented.view.alpha = state == .present ? 1.0 : 0.0;
-            _self?.presented.view.frame = toFrame;
+            animated.alpha = state == .present ? 1.0 : 0.0
+            animated.frame = toFrame
+            animated.setNeedsLayout()
+            animated.layoutIfNeeded()
         })
         {
             (b) in
-            
+
             if state == .present && transitionContext.transitionWasCancelled
             {
-                _self?.presented.view.removeFromSuperview();
+                animated.removeFromSuperview()
             }
             
-            transitionContext.completeTransition( !transitionContext.transitionWasCancelled );
+            transitionContext.completeTransition( !transitionContext.transitionWasCancelled )
         }
     }
 }

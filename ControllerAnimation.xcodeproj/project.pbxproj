@@ -36,6 +36,9 @@
 		FB32681122E99B3B0061256A /* ModalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB32681022E99B3B0061256A /* ModalController.swift */; };
 		FB32681322E99B620061256A /* ControllerAnimation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB105CA822E885C3005F11AF /* ControllerAnimation.framework */; };
 		FB32681522E99D1D0061256A /* ControllerAnimation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FB105CA822E885C3005F11AF /* ControllerAnimation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FB5377E72642C64D00E4AB76 /* AAFromFramePresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5377E62642C64D00E4AB76 /* AAFromFramePresentationController.swift */; };
+		FB5377EB2642C77500E4AB76 /* AAFromFrameInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5377EA2642C77500E4AB76 /* AAFromFrameInteractiveTransition.swift */; };
+		FB5377EF2642D3DD00E4AB76 /* FromFrameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5377EE2642D3DD00E4AB76 /* FromFrameController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +106,9 @@
 		FB105D0C22E8A03B005F11AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB105D0E22E8A03B005F11AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB32681022E99B3B0061256A /* ModalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalController.swift; sourceTree = "<group>"; };
+		FB5377E62642C64D00E4AB76 /* AAFromFramePresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAFromFramePresentationController.swift; sourceTree = "<group>"; };
+		FB5377EA2642C77500E4AB76 /* AAFromFrameInteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAFromFrameInteractiveTransition.swift; sourceTree = "<group>"; };
+		FB5377EE2642D3DD00E4AB76 /* FromFrameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromFrameController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,8 +221,10 @@
 		FB105CE822E8888A005F11AF /* FromFrame */ = {
 			isa = PBXGroup;
 			children = (
-				FB105CE922E8888A005F11AF /* AAFromFrameContollerAnimation.swift */,
 				FB105CEA22E8888A005F11AF /* AAFromFramePresentationDelegate.swift */,
+				FB105CE922E8888A005F11AF /* AAFromFrameContollerAnimation.swift */,
+				FB5377E62642C64D00E4AB76 /* AAFromFramePresentationController.swift */,
+				FB5377EA2642C77500E4AB76 /* AAFromFrameInteractiveTransition.swift */,
 			);
 			path = FromFrame;
 			sourceTree = "<group>";
@@ -236,6 +244,7 @@
 				FB105D0222E8A039005F11AF /* AppDelegate.swift */,
 				FB105D0422E8A039005F11AF /* ViewController.swift */,
 				FB32681022E99B3B0061256A /* ModalController.swift */,
+				FB5377EE2642D3DD00E4AB76 /* FromFrameController.swift */,
 				FB105D0622E8A039005F11AF /* Main.storyboard */,
 				FB105D0922E8A03B005F11AF /* Assets.xcassets */,
 				FB105D0B22E8A03B005F11AF /* LaunchScreen.storyboard */,
@@ -404,6 +413,8 @@
 				FB105CD022E88745005F11AF /* AATransitionDelegate.swift in Sources */,
 				FB105CF622E8888B005F11AF /* AAPercentModalTransitionAnimator.swift in Sources */,
 				FB105CF722E8888B005F11AF /* AAPercentModalPresentationController.swift in Sources */,
+				FB5377E72642C64D00E4AB76 /* AAFromFramePresentationController.swift in Sources */,
+				FB5377EB2642C77500E4AB76 /* AAFromFrameInteractiveTransition.swift in Sources */,
 				FB105CF322E8888B005F11AF /* AAPercentModalStride.swift in Sources */,
 				FB105CF822E8888B005F11AF /* AAFromFrameContollerAnimation.swift in Sources */,
 				FB105CF522E8888B005F11AF /* AAPercentModalInteractiveTransition.swift in Sources */,
@@ -430,6 +441,7 @@
 				FB105D0522E8A039005F11AF /* ViewController.swift in Sources */,
 				FB32681122E99B3B0061256A /* ModalController.swift in Sources */,
 				FB105D0322E8A039005F11AF /* AppDelegate.swift in Sources */,
+				FB5377EF2642D3DD00E4AB76 /* FromFrameController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
