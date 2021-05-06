@@ -9,12 +9,12 @@
 import UIKit
 
 
-class AABlurDimming: AAShadeDimming
+public class AABlurDimming: AAShadeDimming
 {
     private let rBlurEffectView: UIVisualEffectView;
     private let rVibracyEffectView: UIVisualEffectView;
     
-    init( opacity: CGFloat = 1.0, style: UIBlurEffect.Style = .dark )
+    public init( opacity: CGFloat = 1.0, style: UIBlurEffect.Style = .dark )
     {
         let rBlurEffect = UIBlurEffect( style: style )
         rBlurEffectView = UIVisualEffectView( effect: rBlurEffect );
@@ -33,7 +33,7 @@ class AABlurDimming: AAShadeDimming
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews()
+    public override func layoutSubviews()
     {
         super.layoutSubviews();
         

@@ -9,11 +9,11 @@
 import UIKit
 
 
-class AAShadeDimming: UIView
+public class AAShadeDimming: UIView
 {
     let fOpacity: CGFloat;
     
-    init( opacity: CGFloat = 0.7, color: UIColor = UIColor.black )
+    public init( opacity: CGFloat = 0.7, color: UIColor = UIColor.black )
     {
         fOpacity = opacity;
         super.init( frame: CGRect() );

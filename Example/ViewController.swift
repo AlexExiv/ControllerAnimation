@@ -29,7 +29,7 @@ class ViewController: UIViewController
             switch id
             {
             case "FromFrameController":
-                AAFromFramePresentationDelegate( presented: segue.destination, presenting: self, fromFrame: fromView.convert( fromView.bounds, to: nil ), duration: 0.4 )
+                AAFromFramePresentationDelegate( presented: segue.destination, presenting: self, fromFrame: fromView.convert( fromView.bounds, to: nil ), duration: 0.4, interactive: true, dimmingView: AAShadeDimming( opacity: 1.0, color: .white ) )
                 
             default:
                 break

@@ -13,13 +13,13 @@ public class AAFromFramePresentationDelegate: AATransitionDelegate
     private var presentAnimation: AAFromFrameContollerAnimation! = nil
     private var dismissAnimation: AAFromFrameContollerAnimation! = nil
     private var dismissInteraction: AAFromFrameInteractiveTransition! = nil
-    private var presentCntrl: AAFromFramePresentationController! = nil
+    private var presentCntrl: AAFromFramePresentationController? = nil
     
     let fromFrame: CGRect
     let duration: TimeInterval
     
     @discardableResult
-    public init( presented: UIViewController, presenting: UIViewController, fromFrame: CGRect, duration: TimeInterval )
+    public init( presented: UIViewController, presenting: UIViewController, fromFrame: CGRect, duration: TimeInterval, interactive: Bool = true, dimmingView: AAShadeDimming = AAShadeDimming() )
     {
         self.fromFrame = fromFrame
         self.duration = duration
@@ -30,8 +30,8 @@ public class AAFromFramePresentationDelegate: AATransitionDelegate
         
         presentAnimation = AAFromFrameContollerAnimation( presented: presented, presenting: presenting, delegateId: id, state: .present, duration: duration, fromFrame: fromFrame )
         dismissAnimation = AAFromFrameContollerAnimation( presented: presented, presenting: presenting, delegateId: id, state: .dismiss, duration: duration, fromFrame: fromFrame )
-        presentCntrl = AAFromFramePresentationController( dimmingView: AAShadeDimming(), presentedViewController: presented, presenting: presenting )
-        dismissInteraction = AAFromFrameInteractiveTransition( presented: presented, frame: fromFrame )
+        presentCntrl = AAFromFramePresentationController( dimmingView: dimmingView, presentedViewController: presented, presenting: presenting )
+        dismissInteraction = interactive ? AAFromFrameInteractiveTransition( presented: presented, frame: fromFrame ) : nil
     }
     
     func animationController( forDismissed dismissed: UIViewController ) -> UIViewControllerAnimatedTransitioning?
@@ -51,6 +51,6 @@ public class AAFromFramePresentationDelegate: AATransitionDelegate
     
     func interactionControllerForDismissal( using animator: UIViewControllerAnimatedTransitioning ) -> UIViewControllerInteractiveTransitioning?
     {
-        dismissInteraction.isInProgress ? dismissInteraction : nil
+        dismissInteraction?.isInProgress == true ? dismissInteraction : nil
     }
 }
