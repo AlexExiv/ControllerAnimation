@@ -25,19 +25,34 @@ protocol AAPercentModalStride
 
 extension AAPercentModalStride
 {
+    private var modalProtocol: AAPercentModalProtocol?
+    {
+        if let mp = presented as? AAPercentModalProtocol
+        {
+            return mp
+        }
+        
+        if let nav = presented as? UINavigationController, let mp = nav.viewControllers.first as? AAPercentModalProtocol
+        {
+            return mp
+        }
+        
+        return nil
+    }
+    
     var stride: CGFloat
     {
-        return (presented as? AAPercentModalProtocol)?.modalStride ?? 0;
+        modalProtocol?.modalStride ?? 0;
     }
     
     var stridePercent: CGFloat
     {
-        return (presented as? AAPercentModalProtocol)?.modalStridePercent ?? 0.9;
+        modalProtocol?.modalStridePercent ?? 0.9;
     }
     
     var direction: AAPercentModalDirection
     {
-        return (presented as? AAPercentModalProtocol)?.modalDirection ?? .bottom;
+        modalProtocol?.modalDirection ?? .bottom;
     }
     
     var fullSize: CGFloat
@@ -67,11 +82,11 @@ extension AAPercentModalStride
     
     var skipViews: [UIView]?
     {
-        return (presented as? AAPercentModalProtocol)?.skipViews
+        modalProtocol?.skipViews
     }
     
     var animationDuration: TimeInterval
     {
-        return (presented as? AAPercentModalProtocol)?.modalDuration ?? 0.35;
+        modalProtocol?.modalDuration ?? 0.35;
     }
 }
