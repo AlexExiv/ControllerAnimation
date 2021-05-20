@@ -8,8 +8,7 @@
 
 import UIKit
 
-
-class AAPercentModalTransitioningDelegate: AATransitionDelegate, AAPercentModalStride
+public class AAPercentModalTransitioningDelegate: AATransitionDelegate, AAPercentModalStride
 {
     private var presentAnimation: AAPercentModalTransitionAnimator! = nil;
     private var dismissAnimation: AAPercentModalTransitionAnimator! = nil;
@@ -36,7 +35,8 @@ class AAPercentModalTransitioningDelegate: AATransitionDelegate, AAPercentModalS
         }
     }
     
-    init( dimmingView: AAShadeDimming? = nil, presented: UIViewController, presenting: UIViewController)
+    @discardableResult
+    public init( dimmingView: AAShadeDimming? = nil, presented: UIViewController, presenting: UIViewController)
     {
         var cornerRadius: CGFloat = 0.0;
         if let modal = presented as? AAPercentModalProtocol

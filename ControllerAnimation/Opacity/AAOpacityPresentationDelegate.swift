@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AAOpacityPresentationDelegate: AATransitionDelegate
+public class AAOpacityPresentationDelegate: AATransitionDelegate
 {
     func animationController( forDismissed dismissed: UIViewController ) -> UIViewControllerAnimatedTransitioning?
     {

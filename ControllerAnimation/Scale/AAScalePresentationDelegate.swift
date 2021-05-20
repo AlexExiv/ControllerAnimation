@@ -8,8 +8,7 @@
 
 import UIKit
 
-
-class AAScalePresentationDelegate: AATransitionDelegate
+public class AAScalePresentationDelegate: AATransitionDelegate
 {
     func animationController( forDismissed dismissed: UIViewController ) -> UIViewControllerAnimatedTransitioning?
     {

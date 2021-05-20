@@ -17,15 +17,15 @@ public extension UIViewController
         {
             if id.contains( "_ScaleAnim" )
             {
-                _ = AAScalePresentationDelegate( presented: segue.destination, presenting: self );
+                AAScalePresentationDelegate( presented: segue.destination, presenting: self );
             }
             else if id.contains( "_PercentAnim" )
             {
-                _ = AAPercentModalTransitioningDelegate( dimmingView: AAShadeDimming(), presented: segue.destination, presenting: self );
+                AAPercentModalTransitioningDelegate( dimmingView: AAShadeDimming(), presented: segue.destination, presenting: self );
             }
             else if id.contains( "_OpacityAnim" )
             {
-                _ = AAOpacityPresentationDelegate( presented: segue.destination, presenting: self );
+                AAOpacityPresentationDelegate( presented: segue.destination, presenting: self );
             }
         }
     }

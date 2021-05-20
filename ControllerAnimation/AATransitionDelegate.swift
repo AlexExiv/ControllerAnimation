@@ -35,7 +35,8 @@ open class AATransitionDelegate: NSObject, UIViewControllerTransitioningDelegate
     public let presented: UIViewController!;
     public let presenting: UIViewController!;
     
-    init( presented: UIViewController, presenting: UIViewController )
+    @discardableResult
+    public init( presented: UIViewController, presenting: UIViewController )
     {
         self.presented = presented;
         self.presenting = presenting;
