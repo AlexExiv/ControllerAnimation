@@ -55,3 +55,18 @@ public extension AAPercentModalProtocol
         return nil
     }
 }
+
+public extension AAPercentModalProtocol where Self: UIViewController
+{
+    func RequestUpdatePresentedHeight( animated: Bool = false )
+    {
+        if animated
+        {
+            UIView.animate( withDuration: 0.2 ) { [weak self] in self?.presentationController?.containerViewWillLayoutSubviews() }
+        }
+        else
+        {
+            presentationController?.containerViewWillLayoutSubviews()
+        }
+    }
+}

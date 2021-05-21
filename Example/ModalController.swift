@@ -12,15 +12,24 @@ import ControllerAnimation
 class ModalController: UIViewController, AAPercentModalProtocol
 {
     @IBOutlet weak var datePickerView: UIDatePicker!
+    @IBOutlet weak var changeLab: UILabel!
+    
+    @IBOutlet weak var containerView: UIView!
     
     var modalStride: CGFloat
     {
-        return 400.0
+        containerView.bounds.size.height
     }
     
     var skipViews: [UIView]?
     {
-        return [datePickerView]
+        [datePickerView]
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear( animated )
+        changeLab.text = "Mark up on the result rectangles cutouts(for speakers, ports...) and related parts slopes on the \"Up\" faces. And on the \"Down\" faces object positions(ports sides, isobaric box, and so on), bulkheads positions. The flip button may be helpful to mirror positions from left to right."
+        RequestUpdatePresentedHeight( animated: animated )
     }
     
     @IBAction func Close(_ sender: Any)

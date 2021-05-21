@@ -46,7 +46,10 @@ internal class AAPercentModalPresentationController: UIPresentationController, A
     
     override func containerViewWillLayoutSubviews()
     {
-        presentedViewController.view.frame = frameOfPresentedViewInContainerView;
+        presentedViewController.view.frame = frameOfPresentedViewInContainerView
+        presentedViewController.view.setNeedsLayout()
+        presentedViewController.view.layoutIfNeeded()
+        presentedViewController.view.frame = frameOfPresentedViewInContainerView
     }
     
     override func presentationTransitionWillBegin()
