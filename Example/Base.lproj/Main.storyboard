@@ -34,7 +34,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="QgH-78-Grd" kind="presentation" identifier="FromFrameController" id="uEm-7C-cob"/>
+                                    <segue destination="QgH-78-Grd" kind="presentation" identifier="FromFrameController" modalPresentationStyle="fullScreen" id="uEm-7C-cob"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1SK-fj-OjJ">
@@ -144,18 +144,18 @@
             <objects>
                 <viewController storyboardIdentifier="FromFrameController" id="QgH-78-Grd" customClass="FromFrameController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0YF-eC-VQG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I1G-Ns-BZX">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="736"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="I1G-Ns-BZX" secondAttribute="height" multiplier="9:16" id="gmR-2f-dOZ"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9fb-5R-SW8">
-                                <rect key="frame" x="16" y="16" width="45" height="45"/>
+                                <rect key="frame" x="16" y="60" width="45" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="6tL-oO-DuG"/>
                                     <constraint firstAttribute="width" constant="45" id="VS6-Q8-N55"/>

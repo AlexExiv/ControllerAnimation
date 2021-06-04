@@ -18,6 +18,9 @@ internal class AAFromFramePresentationController: UIPresentationController
         
         super.init( presentedViewController: presentedViewController, presenting: presentingViewController )
     }
+    
+    override var shouldPresentInFullscreen: Bool { true }
+    override var shouldRemovePresentersView: Bool { false } 
 
     override func presentationTransitionWillBegin()
     {

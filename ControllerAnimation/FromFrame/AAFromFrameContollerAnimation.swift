@@ -30,9 +30,17 @@ class AAFromFrameContollerAnimation: AAControllerAnimation
         if state == .present
         {
             animated = transitionContext.view( forKey: .to )!
+            if let v = transitionContext.view( forKey: .from )
+            {
+                transitionContext.containerView.addSubview( v )
+            }
         }
         else
         {
+            if let v = transitionContext.view( forKey: .to )
+            {
+                transitionContext.containerView.addSubview( v )
+            }
             animated = transitionContext.view( forKey: .from )!
         }
         
