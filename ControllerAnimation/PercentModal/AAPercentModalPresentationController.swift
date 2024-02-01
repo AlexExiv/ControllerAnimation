@@ -46,9 +46,9 @@ internal class AAPercentModalPresentationController: UIPresentationController, A
     
     override func containerViewWillLayoutSubviews()
     {
-        presentedViewController.view.frame = frameOfPresentedViewInContainerView
-        presentedViewController.view.setNeedsLayout()
-        presentedViewController.view.layoutIfNeeded()
+        //presentedViewController.view.frame = frameOfPresentedViewInContainerView
+        //presentedViewController.view.setNeedsLayout()
+        //presentedViewController.view.layoutIfNeeded()
         presentedViewController.view.frame = frameOfPresentedViewInContainerView
     }
     
@@ -77,6 +77,17 @@ internal class AAPercentModalPresentationController: UIPresentationController, A
         if completed
         {
             dimmingView?.removeFromSuperview();
+        }
+    }
+    
+    override func preferredContentSizeDidChange( forChildContentContainer container: UIContentContainer )
+    {
+        UIView.animate( withDuration: 0.2 ) 
+        {
+            [weak self] in 
+            
+            self?.containerView?.setNeedsLayout()
+            self?.containerView?.layoutIfNeeded()
         }
     }
 

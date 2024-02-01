@@ -26,10 +26,20 @@ class ModalController: UIViewController, AAPercentModalProtocol
         [datePickerView]
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) 
+    {
         super.viewDidAppear( animated )
         changeLab.text = "Mark up on the result rectangles cutouts(for speakers, ports...) and related parts slopes on the \"Up\" faces. And on the \"Down\" faces object positions(ports sides, isobaric box, and so on), bulkheads positions. The flip button may be helpful to mirror positions from left to right."
-        RequestUpdatePresentedHeight( animated: animated )
+        //RequestUpdatePresentedHeight( animated: animated )
+    }
+    
+    override func viewDidLayoutSubviews()
+    {
+        super.viewDidLayoutSubviews()
+        
+        DispatchQueue.main.async {
+            self.preferredContentSize = self.containerView.bounds.size
+        }
     }
     
     @IBAction func Close(_ sender: Any)
