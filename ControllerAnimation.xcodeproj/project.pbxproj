@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB0C0FF62BBEA39A003947C0 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = FB0C0FF52BBEA39A003947C0 /* PrivacyInfo.xcprivacy */; };
 		FB105CB222E885C3005F11AF /* ControllerAnimation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB105CA822E885C3005F11AF /* ControllerAnimation.framework */; };
 		FB105CB722E885C3005F11AF /* ControllerAnimationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB105CB622E885C3005F11AF /* ControllerAnimationTests.swift */; };
 		FB105CB922E885C3005F11AF /* ControllerAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = FB105CAB22E885C3005F11AF /* ControllerAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -73,6 +74,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FB0C0FF52BBEA39A003947C0 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		FB105CA822E885C3005F11AF /* ControllerAnimation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ControllerAnimation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB105CAB22E885C3005F11AF /* ControllerAnimation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ControllerAnimation.h; sourceTree = "<group>"; };
 		FB105CAC22E885C3005F11AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 		FB105CAA22E885C3005F11AF /* ControllerAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				FB0C0FF52BBEA39A003947C0 /* PrivacyInfo.xcprivacy */,
 				FB105CEB22E8888A005F11AF /* DimmingViews */,
 				FB105CE822E8888A005F11AF /* FromFrame */,
 				FB105CDB22E8888A005F11AF /* Opacity */,
@@ -376,6 +379,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB0C0FF62BBEA39A003947C0 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
