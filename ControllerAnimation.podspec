@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ControllerAnimation"
-  s.version      = "0.2.8"
+  s.version      = "0.2.9"
   s.summary      = "The pack of controllers animations"
 
   # This description is used to generate tags and improve search results.
@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/AlexExiv/ControllerAnimation.git", :tag => "0.2.8" }
+  s.source       = { :git => "https://github.com/AlexExiv/ControllerAnimation.git", :tag => "0.2.9" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
